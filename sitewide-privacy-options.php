@@ -53,6 +53,17 @@ add_filter( 'site_option_blog_public', 'additional_privacy_blog_public' );
 add_action( 'wp_enqueue_scripts', 'additional_privacy_scripts_method' );
 add_action( 'login_enqueue_scripts', 'additional_privacy_scripts_method' );
 
+// Require authentication for all WP REST API requests
+//add_filter( 'rest_authentication_errors', function( $result ) {
+	//if ( ! empty( $result ) ) {
+		//return $result;
+	//}
+	//if ( ! is_user_logged_in() ) {
+		//return new WP_Error( 'restx_logged_out', 'Sorry, you must be logged in to make a request.', array( 'status' => 401 ) );
+	//}
+	//return $result;
+//});
+
 //------------------------------------------------------------------------//
 //---Functions------------------------------------------------------------//
 //------------------------------------------------------------------------//
