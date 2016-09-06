@@ -1,33 +1,14 @@
 <?php
 /*
-Plugin Name: Multisite Privacy
-Plugin URI: http://premium.wpmudev.org/project/sitewide-privacy-options-for-wordpress-mu/
-Description: Adds more levels of privacy and allows you to control them across all sites - or allow users to override them.
-Author: WPMU DEV
-Author URI: http://premium.wpmudev.org
-Version: 1.1.8.6
-Network: true
-WDP ID: 52
-License: GNU General Public License (Version 2 - GPLv2)
-*/
-
-/*
-Copyright 2009-2014 Incsub (http://incsub.com)
-Author - S H Mohanjith
-Contributors - Ivan Shaovchev, Andrew Billits, Andrey Shipilov, S H Mohanjith
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License (Version 2 - GPLv2) as published by
-the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+* Plugin Name: WRDSB Multisite Privacy
+* Plugin URI: https://github.com/wrdsb/wordpress-plugin-multisite-privacy
+* Description: Adds more levels of privacy and allows you to control them across all sites - or allow users to override them.
+* Author: WRDSB
+* Author URI: https://github.com/wrdsb
+* Version: 1.1.9
+* License: GPLv3 or later
+* GitHub Plugin URI: wrdsb/wordpress-plugin-users
+* GitHub Branch: master
 */
 
 //------------------------------------------------------------------------//
@@ -37,14 +18,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //------------------------------------------------------------------------//
 //---Hooks-----------------------------------------------------------------//
 //------------------------------------------------------------------------//
-
-add_action('wpmu_options', 'additional_privacy_site_admin_options');
-add_action('update_wpmu_options', 'additional_privacy_site_admin_options_process');
-add_action('blog_privacy_selector', 'additional_privacy_blog_options');
-add_action('admin_menu', 'additional_privacy_modify_menu_items', 99);
-add_action('wpmu_new_blog', 'additional_privacy_set_default', 100, 2);
-add_action('admin_enqueue_scripts', 'additional_privacy_admin_enqueue_scripts');
-add_action('admin_init', 'additional_privacy_admin_init');
+add_action('wpmu_options',           'additional_privacy_site_admin_options');
+add_action('update_wpmu_options',    'additional_privacy_site_admin_options_process');
+add_action('blog_privacy_selector',  'additional_privacy_blog_options');
+add_action('admin_menu',             'additional_privacy_modify_menu_items', 99);
+add_action('wpmu_new_blog',          'additional_privacy_set_default', 100, 2);
+add_action('admin_enqueue_scripts',  'additional_privacy_admin_enqueue_scripts');
+add_action('admin_init',             'additional_privacy_admin_init');
 
 if ( spo_is_mobile_app() ) {
     add_action('template_redirect', 'additional_privacy');
@@ -76,7 +56,6 @@ add_action( 'login_enqueue_scripts', 'additional_privacy_scripts_method' );
 //------------------------------------------------------------------------//
 //---Functions------------------------------------------------------------//
 //------------------------------------------------------------------------//
-
 function additional_privacy_init() {
     load_plugin_textdomain( 'sitewide-privacy-options', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
