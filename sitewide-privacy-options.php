@@ -536,6 +536,7 @@ function additional_privacy() {
         !stristr($_request_path, 'wp-login') &&
         !stristr($_request_path, 'wp-admin') &&
         !stristr($_request_path, 'xmlrpc') &&
+	!stristr($_request_path, 'wp-json') &&
         !stristr($_request_path, 'wp-cron') ) {
 
         $_redirect_to = preg_replace( '/^'.str_replace('/', '\/', $current_blog->path).'/', '', trailingslashit($_SERVER['REQUEST_URI'])).'/';
