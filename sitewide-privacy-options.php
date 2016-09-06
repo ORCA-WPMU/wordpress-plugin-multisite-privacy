@@ -54,6 +54,7 @@ add_action( 'wp_enqueue_scripts', 'additional_privacy_scripts_method' );
 add_action( 'login_enqueue_scripts', 'additional_privacy_scripts_method' );
 
 // Require authentication for all WP REST API requests
+// https://gist.github.com/danielbachhuber/8f92af4c6a8db784771c
 //add_filter( 'rest_authentication_errors', function( $result ) {
 	//if ( ! empty( $result ) ) {
 		//return $result;
